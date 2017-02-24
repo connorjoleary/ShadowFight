@@ -1,19 +1,23 @@
 package com.example.connor.shadowfight;
 
+import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.widget.ListView;
+import android.content.IntentFilter;
 
 public class MainActivity extends AppCompatActivity {
     ListView listView ;
     private ProgressBar health1;
     private ProgressBar health2;
+    private final IntentFilter intentFilter = new IntentFilter();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,21 @@ public class MainActivity extends AppCompatActivity {
         health1.setProgress(50);
         health2.setProgress(10);
         listView = (ListView) findViewById(R.id.list);
-        String[] values = new String[] { "Rock",
+
+        setContentView(R.layout.activity_main);
+        //  Indicates a change in the Wi-Fi P2P status.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
+
+        // Indicates a change in the list of available peers.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
+
+        // Indicates the state of Wi-Fi P2P connectivity has changed.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
+
+        // Indicates this device's details have changed.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+
+        String[] values = new String[]{"Rock",
                 "Paper",
                 "Scissors"
         };
