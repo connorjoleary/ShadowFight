@@ -13,7 +13,10 @@ import android.widget.ListView;
 import android.content.IntentFilter;
 
 public class MainActivity extends AppCompatActivity {
-    ListView listView ;
+    ListView listView;
+    String itemValue;
+    int healthVal1=100;
+    int healthVal2=100;
     private ProgressBar health1;
     private ProgressBar health2;
     private final IntentFilter intentFilter = new IntentFilter();
@@ -25,11 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         health1 = (ProgressBar) findViewById(R.id.progressBar2);
         health2 = (ProgressBar) findViewById(R.id.progressBar3);
-        health1.setProgress(50);
-        health2.setProgress(10);
         listView = (ListView) findViewById(R.id.list);
 
-        setContentView(R.layout.activity_main);
         //  Indicates a change in the Wi-Fi P2P status.
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
 
@@ -60,13 +60,23 @@ public class MainActivity extends AppCompatActivity {
                 int itemPosition = position;
 
                 // ListView Clicked item value
-                String itemValue = (String) listView.getItemAtPosition(position);
+                itemValue = (String) listView.getItemAtPosition(position);
+//
+//                // Show Alert
+//                Toast.makeText(getApplicationContext(),
+//                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
+//                        .show();
+            }
+        });
 
-                // Show Alert
+        findViewById(R.id.sendMove).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
-                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
+                        "send " + itemValue, Toast.LENGTH_LONG)
                         .show();
-
+                health1.setProgress(healthVal1);
+                health2.setProgress(healthVal2);
             }
         });
     }
