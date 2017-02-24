@@ -49,4 +49,23 @@
         android:layout_below="@+id/button3"
         android:id="@+id/list" />
 
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:id="@+id/progressBar2"
+        android:layout_alignTop="@+id/progressBar3"
+        android:layout_toEndOf="@+id/button3" />
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar3"
+        android:layout_marginBottom="13dp"
+        android:layout_above="@+id/list"
+        android:layout_toEndOf="@+id/progressBar2"
+        android:layout_marginStart="124dp" />
+
 </RelativeLayout>
