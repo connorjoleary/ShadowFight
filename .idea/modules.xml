@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/ShadowFight-master.iml" filepath="$PROJECT_DIR$/ShadowFight-master.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/ShadowFight.iml" filepath="$PROJECT_DIR$/ShadowFight.iml" />
+>>>>>>> b816093d0ede156dd2c97033d07d737f637fcaf7
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
